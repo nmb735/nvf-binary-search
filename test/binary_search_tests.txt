@@ -1,0 +1,21 @@
+Running binary_search_tests
+TEST(BinarySearch, ConerCase2) - 0 ms
+TEST(BinarySearch, ConerCase1) - 0 ms
+TEST(BinarySearch, sizeOne) - 0 ms
+TEST(BinarySearch, sizeZero) - 0 ms
+TEST(BinarySearch, NullTest) - 0 ms
+TEST(BinarySearch, CycleTest6) - 0 ms
+TEST(BinarySearch, CycleTest5) - 0 ms
+TEST(BinarySearch, CycleTest4) - 0 ms
+TEST(BinarySearch, CycleTest3) - 0 ms
+TEST(BinarySearch, CycleTest2) - 0 ms
+TEST(BinarySearch, CycleTest) - 0 ms
+TEST(BinarySearch, InitFifoEmptyAllWritten) - 0 ms
+TEST(BinarySearch, InitFifoEmptyNeverWritten) - 0 ms
+TEST(BinarySearch, InitFifoNeverFullyWritten) - 0 ms
+TEST(BinarySearch, InitFifoNotFullWithMultipleZeros) - 0 ms
+TEST(BinarySearch, InitFifoNotFullWithoutZeros) - 0 ms
+TEST(BinarySearch, InitFifoFull) - 0 ms
+
+[32;1mOK (17 tests, 17 ran, 34 checks, 0 ignored, 0 filtered out, 0 ms)[m
+
