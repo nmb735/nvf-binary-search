@@ -1,4 +1,17 @@
 Running binary_search_tests
+TEST(BinarySearch, ConerCase11)
+binary_search.test.cpp:253: error: Failure in TEST(BinarySearch, ConerCase11)
+	expected <8>
+	but was  <0>
+	difference starts at position 0 at: <          0         >
+	                                               ^
+
+ - 1 ms
+TEST(BinarySearch, ConerCase9) - 0 ms
+TEST(BinarySearch, ConerCase8) - 0 ms
+TEST(BinarySearch, ConerCase7) - 0 ms
+TEST(BinarySearch, ConerCase6) - 0 ms
+TEST(BinarySearch, ConerCase5) - 0 ms
 TEST(BinarySearch, ConerCase2) - 0 ms
 TEST(BinarySearch, ConerCase1) - 0 ms
 TEST(BinarySearch, sizeOne) - 0 ms
@@ -17,5 +30,5 @@ TEST(BinarySearch, InitFifoNotFullWithMultipleZeros) - 0 ms
 TEST(BinarySearch, InitFifoNotFullWithoutZeros) - 0 ms
 TEST(BinarySearch, InitFifoFull) - 0 ms
 
-[32;1mOK (17 tests, 17 ran, 34 checks, 0 ignored, 0 filtered out, 0 ms)[m
+[31;1mErrors (1 failures, 23 tests, 23 ran, 45 checks, 0 ignored, 0 filtered out, 2 ms)[m
 
