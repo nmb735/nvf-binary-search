@@ -1,4 +1,24 @@
 Running binary_search_tests
+TEST(BinarySearch, ErrorType1_ToLeft)
+binary_search.test.cpp:410: error: Failure in TEST(BinarySearch, ErrorType1_ToLeft)
+	expected <7>
+	but was  <0>
+	difference starts at position 0 at: <          0         >
+	                                               ^
+
+ - 4 ms
+TEST(BinarySearch, ErrorType1_CondPMEquals) - 0 ms
+TEST(BinarySearch, ErrorType1_CondMinEquals) - 0 ms
+TEST(BinarySearch, ErrorType1_CondMinInterval) - 0 ms
+TEST(BinarySearch, ErrorType1_CondRight) - 0 ms
+TEST(BinarySearch, ErrorType1)
+binary_search.test.cpp:369: error: Failure in TEST(BinarySearch, ErrorType1)
+	expected <8>
+	but was  <0>
+	difference starts at position 0 at: <          0         >
+	                                               ^
+
+ - 0 ms
 TEST(BinarySearch, NVFMock_InitFifoNeverFullyWritten) - 0 ms
 TEST(BinarySearch, NVFMock_InitFifoNotFullWithoutZeros) - 0 ms
 TEST(BinarySearch, NVFMock_FifoFull) - 0 ms
@@ -12,13 +32,13 @@ TEST(BinarySearch, ScaleHypothesis5) - 0 ms
 TEST(BinarySearch, ScaleHypothesis4) - 0 ms
 TEST(BinarySearch, ScaleHypothesis3) - 0 ms
 TEST(BinarySearch, ScaleHypothesis2)
-binary_search.test.cpp:264: error: Failure in TEST(BinarySearch, ScaleHypothesis2)
+binary_search.test.cpp:265: error: Failure in TEST(BinarySearch, ScaleHypothesis2)
 	expected <5>
 	but was  <0>
 	difference starts at position 0 at: <          0         >
 	                                               ^
 
- - 6 ms
+ - 0 ms
 TEST(BinarySearch, ScaleHypothesis1) - 0 ms
 TEST(BinarySearch, ConerCase11)
 binary_search.test.cpp:248: error: Failure in TEST(BinarySearch, ConerCase11)
@@ -68,5 +88,5 @@ TEST(BinarySearch, InitFifoNotFullWithMultipleZeros) - 0 ms
 TEST(BinarySearch, InitFifoNotFullWithoutZeros) - 0 ms
 TEST(BinarySearch, InitFifoFull) - 0 ms
 
-[31;1mErrors (4 failures, 40 tests, 40 ran, 76 checks, 0 ignored, 0 filtered out, 7 ms)[m
+[31;1mErrors (6 failures, 46 tests, 46 ran, 87 checks, 0 ignored, 0 filtered out, 4 ms)[m
 

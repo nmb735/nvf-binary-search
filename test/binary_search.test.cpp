@@ -175,7 +175,7 @@ TEST(BinarySearch, ConerCase3)
 
     CHECK_EQUAL(7U, fifo_indexes.head);
     CHECK_EQUAL(6U, fifo_indexes.tail);
-} // Logics --> In Notepad (Type 1)
+} //ERROR (Type 1)
 
 TEST(BinarySearch, ConerCase4)
 {
@@ -184,7 +184,7 @@ TEST(BinarySearch, ConerCase4)
 
     CHECK_EQUAL(9U, fifo_indexes.head);
     CHECK_EQUAL(6U, fifo_indexes.tail);
-} // Logics (Error Type 1)
+} //ERROR (Type 1)
 
 TEST(BinarySearch, ConerCase5)
 {
@@ -247,7 +247,8 @@ TEST(BinarySearch, ConerCase11)
 
     CHECK_EQUAL(8U, fifo_indexes.head);
     CHECK_EQUAL(6U, fifo_indexes.tail);
-} //ERROR. CONCLUSION: PROBLEMA QUAN EL SECTOR ESTÀ A LA MEITAT DRETA DE LA FIFO A UNA DISTANCIA > 1 DEL MIG (Type 1)
+} //ERROR (Type 1) 
+//CONCLUSION: PROBLEMA QUAN EL SECTOR ESTÀ A LA MEITAT DRETA DE LA FIFO A UNA DISTANCIA > 1 DEL MIG
 
 TEST(BinarySearch, ScaleHypothesis1)
 {
@@ -360,3 +361,52 @@ TEST(BinarySearch, NVFMock_InitFifoNeverFullyWritten)
     CHECK_EQUAL(4U, fifo_indexes.tail);
     CHECK_EQUAL(8U, fifo_indexes.head);
 }
+
+TEST(BinarySearch, ErrorType1)
+{
+    uint32_t arr[] = {0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 1, 2, 0xFFFFFFFFU, 0xFFFFFFFFU};
+    Fifo_Indexes_t fifo_indexes = init_fifo_indexes(arr, sizeof(arr) / sizeof(arr[0]));
+    CHECK_EQUAL(8U, fifo_indexes.tail);
+    CHECK_EQUAL(10U, fifo_indexes.head);   
+} //ERROR (Type 1)
+
+TEST(BinarySearch, ErrorType1_CondRight)
+{
+    uint32_t arr[] = {0xFFFFFFFFU, 0xFFFFFFFFU, 1, 2, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU};
+    Fifo_Indexes_t fifo_indexes = init_fifo_indexes(arr, sizeof(arr) / sizeof(arr[0]));
+    CHECK_EQUAL(2U, fifo_indexes.tail);
+    CHECK_EQUAL(4U, fifo_indexes.head);   
+}
+
+TEST(BinarySearch, ErrorType1_CondMinInterval)
+{
+    uint32_t arr[] = {0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 1, 2, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU};
+    Fifo_Indexes_t fifo_indexes = init_fifo_indexes(arr, sizeof(arr) / sizeof(arr[0]));
+    CHECK_EQUAL(5U, fifo_indexes.tail);
+    CHECK_EQUAL(7U, fifo_indexes.head);   
+}
+
+TEST(BinarySearch, ErrorType1_CondMinEquals)
+{
+    uint32_t arr[] = {0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 1, 2, 3, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU};
+    Fifo_Indexes_t fifo_indexes = init_fifo_indexes(arr, sizeof(arr) / sizeof(arr[0]));
+    CHECK_EQUAL(4U, fifo_indexes.tail);
+    CHECK_EQUAL(7U, fifo_indexes.head);   
+}
+
+TEST(BinarySearch, ErrorType1_CondPMEquals)
+{
+    uint32_t arr[] = {0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 1, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU};
+    Fifo_Indexes_t fifo_indexes = init_fifo_indexes(arr, sizeof(arr) / sizeof(arr[0]));
+    CHECK_EQUAL(5U, fifo_indexes.tail);
+    CHECK_EQUAL(6U, fifo_indexes.head);   
+}
+
+TEST(BinarySearch, ErrorType1_ToLeft)
+{
+    uint32_t arr[] = {0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 1, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU, 0xFFFFFFFFU};
+    Fifo_Indexes_t fifo_indexes = init_fifo_indexes(arr, sizeof(arr) / sizeof(arr[0]));
+    CHECK_EQUAL(6U, fifo_indexes.tail);
+    CHECK_EQUAL(7U, fifo_indexes.head);   
+} //ERROR (Type 1)
+
