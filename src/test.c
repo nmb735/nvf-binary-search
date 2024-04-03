@@ -207,6 +207,17 @@ void init_fifo_tail(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexe
 
         else
         {
+            if((arr_mid_idx == arr_right_idx) && (arr_mid_idx == arr[left_idx]))
+            {
+                while((left_idx < right_idx) && (arr[left_idx] == arr_mid_idx))
+                {
+                    left_idx++;
+                }
+                while((left_idx < right_idx) && (arr_right_idx == arr_mid_idx))
+                {
+                    right_idx--;
+                }
+            }
             right_idx = mid_idx - 1U;
         }
 
