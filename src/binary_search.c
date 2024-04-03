@@ -71,6 +71,32 @@ static inline uint32_t replace_value(uint32_t value, uint32_t old_value, uint32_
 }
 
 /**
+ * Checks if the current value in mid is the head of the NVF. The head is the maximum value in the array (smaller than UINT32_MAX).
+ * @author Nedal Martinez Benelmekki
+ * @param left: The left-most index in an array.
+ * @param right: The right-most index in an array.
+ * @param mid: The midpoint between the left and right values.
+ * @return True if the conditions are met, False otherwise.
+ */
+static inline bool is_head(uint32_t *arr, uint32_t left, uint32_t right, uint32_t mid)
+{
+    return ((mid == 0U) && (arr[mid] >= arr[left]) && (arr[mid] >= arr[right]));
+}
+
+/**
+ * Checks if the current value in mid is the tail of the NVF. The tail is the minimum value in the array (larger than zero).
+ * @author Nedal Martinez Benelmekki
+ * @param left: The left-most index in an array.
+ * @param right: The right-most index in an array.
+ * @param mid: The midpoint between the left and right values.
+ * @return True if the conditions are met, False otherwise.
+ */
+static inline bool is_tail(uint32_t *arr, uint32_t left, uint32_t right, uint32_t mid)
+{
+    return ((mid == 0U) && (arr[mid] <= arr[left]) && (arr[mid] <= arr[right]));
+}
+
+/**
  * Initializes the head index of the FIFO non volatile memory. It searches for the maximum value in the array and sets the head index accordingly.
  * @author Albert Alvarez
  * @param arr: Pointer to an array of uint32_t values.
@@ -87,7 +113,7 @@ void init_fifo_head(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexe
     // Buscamos el maximo
     while (left_idx < right_idx)
     {
-        if ((mid_idx == 0U) || ((mid_idx == left_idx) && (mid_idx == right_idx)))
+        if (is_head(arr, left_idx, right_idx, mid_idx))
         {
             init_fifo_indexes_res->head = mid_idx;
             break;
@@ -106,7 +132,7 @@ void init_fifo_head(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexe
 
         if (mid_idx > 0U)
         {
-            uint32_t arr_mid_m1_idx = (arr[mid_idx - 1U] == MAX_VALUE) ? MIN_VALUE : arr[mid_idx - 1U];
+            uint32_t arr_mid_m1_idx = replace_value(arr[mid_idx - 1U], MAX_VALUE, MIN_VALUE);
             if (arr_mid_m1_idx > arr_mid_idx)
             {
                 init_fifo_indexes_res->head = mid_idx;
@@ -145,7 +171,7 @@ void init_fifo_tail(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexe
     // Buscamos el minimimo
     while (left_idx < right_idx)
     {
-        if ((mid_idx == 0U) || ((mid_idx == left_idx) && (mid_idx == right_idx)))
+        if (is_tail(arr, left_idx, right_idx, mid_idx))
         {
             init_fifo_indexes_res->tail = mid_idx;
             break;
@@ -164,7 +190,7 @@ void init_fifo_tail(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexe
 
         if (mid_idx > 0U)
         {
-            uint32_t arr_mid_m1_idx = (arr[mid_idx - 1U] == MIN_VALUE) ? MAX_VALUE : arr[mid_idx - 1U];
+            uint32_t arr_mid_m1_idx = replace_value(arr[mid_idx - 1U], MIN_VALUE, MAX_VALUE);
             if (arr_mid_m1_idx > arr_mid_idx)
             {
                 init_fifo_indexes_res->tail = mid_idx;

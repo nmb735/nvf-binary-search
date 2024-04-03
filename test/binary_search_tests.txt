@@ -1,17 +1,55 @@
 Running binary_search_tests
+TEST(BinarySearch, NVFMock_InitFifoNeverFullyWritten) - 0 ms
+TEST(BinarySearch, NVFMock_InitFifoNotFullWithoutZeros) - 0 ms
+TEST(BinarySearch, NVFMock_FifoFull) - 0 ms
+TEST(BinarySearch, NVFMock_AllWritten) - 0 ms
+TEST(BinarySearch, NVFMock_NeverWriten) - 0 ms
+TEST(BinarySearch, CycleExtemeWithScale) - 0 ms
+TEST(BinarySearch, ScaleHypothesis8) - 0 ms
+TEST(BinarySearch, ScaleHypothesis7) - 0 ms
+TEST(BinarySearch, ScaleHypothesis6) - 0 ms
+TEST(BinarySearch, ScaleHypothesis5) - 0 ms
+TEST(BinarySearch, ScaleHypothesis4) - 0 ms
+TEST(BinarySearch, ScaleHypothesis3) - 0 ms
+TEST(BinarySearch, ScaleHypothesis2)
+binary_search.test.cpp:264: error: Failure in TEST(BinarySearch, ScaleHypothesis2)
+	expected <5>
+	but was  <0>
+	difference starts at position 0 at: <          0         >
+	                                               ^
+
+ - 6 ms
+TEST(BinarySearch, ScaleHypothesis1) - 0 ms
 TEST(BinarySearch, ConerCase11)
-binary_search.test.cpp:253: error: Failure in TEST(BinarySearch, ConerCase11)
+binary_search.test.cpp:248: error: Failure in TEST(BinarySearch, ConerCase11)
 	expected <8>
 	but was  <0>
 	difference starts at position 0 at: <          0         >
 	                                               ^
 
- - 1 ms
+ - 0 ms
+TEST(BinarySearch, ConerCase10) - 0 ms
 TEST(BinarySearch, ConerCase9) - 0 ms
 TEST(BinarySearch, ConerCase8) - 0 ms
 TEST(BinarySearch, ConerCase7) - 0 ms
 TEST(BinarySearch, ConerCase6) - 0 ms
 TEST(BinarySearch, ConerCase5) - 0 ms
+TEST(BinarySearch, ConerCase4)
+binary_search.test.cpp:185: error: Failure in TEST(BinarySearch, ConerCase4)
+	expected <9>
+	but was  <0>
+	difference starts at position 0 at: <          0         >
+	                                               ^
+
+ - 0 ms
+TEST(BinarySearch, ConerCase3)
+binary_search.test.cpp:176: error: Failure in TEST(BinarySearch, ConerCase3)
+	expected <7>
+	but was  <0>
+	difference starts at position 0 at: <          0         >
+	                                               ^
+
+ - 0 ms
 TEST(BinarySearch, ConerCase2) - 0 ms
 TEST(BinarySearch, ConerCase1) - 0 ms
 TEST(BinarySearch, sizeOne) - 0 ms
@@ -30,5 +68,5 @@ TEST(BinarySearch, InitFifoNotFullWithMultipleZeros) - 0 ms
 TEST(BinarySearch, InitFifoNotFullWithoutZeros) - 0 ms
 TEST(BinarySearch, InitFifoFull) - 0 ms
 
-[31;1mErrors (1 failures, 23 tests, 23 ran, 45 checks, 0 ignored, 0 filtered out, 2 ms)[m
+[31;1mErrors (4 failures, 40 tests, 40 ran, 76 checks, 0 ignored, 0 filtered out, 7 ms)[m
 
