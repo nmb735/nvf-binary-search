@@ -5,7 +5,7 @@
 
 static inline uint32_t calc_mid(uint32_t left, uint32_t right)
 {
-    return left + (right - left) / 2U;
+    return (left + (((right - left) >> 1)));
 }
 
 bool check_conditions(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexes_res)
@@ -17,7 +17,7 @@ bool check_conditions(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_inde
 
     if (size == 1)
     {
-        // For future use
+        // For future use: Error handling/NVF_Status return value in function
         /*
         if (arr[0] > MIN_VALUE && arr[0] < MAX_VALUE) {
             init_fifo_indexes_res->tail = 0;
@@ -31,7 +31,6 @@ bool check_conditions(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_inde
 
 void find_min_index(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexes_res)
 {
-
     uint32_t left_idx = 0U;
     uint32_t right_idx = size - 1U;
     uint32_t mid_idx;
@@ -133,3 +132,4 @@ Fifo_Indexes_t init_fifo_indexes(uint32_t *arr, size_t size)
 
     return init_fifo_indexes_res;
 }
+

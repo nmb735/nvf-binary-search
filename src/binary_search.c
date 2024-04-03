@@ -202,6 +202,9 @@ void init_fifo_tail(uint32_t *arr, size_t size, Fifo_Indexes_t *init_fifo_indexe
         {
             left_idx = mid_idx + 1U;
         }
+
+        // In case of Right == Left == Mid == Mid+1 == Mid-1 --> What half do we search? Linear search for a worse case scenario?
+
         else
         {
             right_idx = mid_idx - 1U;
