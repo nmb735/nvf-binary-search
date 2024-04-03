@@ -6,7 +6,7 @@ binary_search.test.cpp:410: error: Failure in TEST(BinarySearch, ErrorType1_ToLe
 	difference starts at position 0 at: <          0         >
 	                                               ^
 
- - 4 ms
+ - 2 ms
 TEST(BinarySearch, ErrorType1_CondPMEquals) - 0 ms
 TEST(BinarySearch, ErrorType1_CondMinEquals) - 0 ms
 TEST(BinarySearch, ErrorType1_CondMinInterval) - 0 ms
@@ -88,5 +88,5 @@ TEST(BinarySearch, InitFifoNotFullWithMultipleZeros) - 0 ms
 TEST(BinarySearch, InitFifoNotFullWithoutZeros) - 0 ms
 TEST(BinarySearch, InitFifoFull) - 0 ms
 
-[31;1mErrors (6 failures, 46 tests, 46 ran, 87 checks, 0 ignored, 0 filtered out, 4 ms)[m
+[31;1mErrors (6 failures, 46 tests, 46 ran, 87 checks, 0 ignored, 0 filtered out, 2 ms)[m
 
